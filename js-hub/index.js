@@ -49,7 +49,7 @@ const displaySearchResult = phones => {
       </div>
         
         
-        `
+        `;
         // console.log(data.slug);
         searchResult.appendChild(div);
 
@@ -72,6 +72,40 @@ const loadingPhoneDetail = id => {
 
 const displayPhoneDetail = phones => {
     console.log(phones);
+
+    const phoneDetails = document.getElementById('phone-details');
+    const div = document.createElement('div');
+    div.classList.add('card');
+
+    div.innerHTML = `
+    
+    <img src="${phones.image}" class="card-img-top " >
+    <div class="card-body">
+      <h5 class="card-title">${phones.name}</h5>
+      <p class="card-text">${phones.releaseDate}</p>
+      <h5>Main Features:-</h5>
+      <p> Storage: ${phones.mainFeatures.storage}</p>
+      <p>Chip Set: ${phones.mainFeatures.chipSet}</p>
+      <p>Memory: ${phones.mainFeatures.memory}</p>
+      <p>Display: ${phones.mainFeatures.displaySize}</p>
+
+      <h5>Sensor:- </h5>
+      <p>Sensors: ${phones.mainFeatures.sensors}</p>
+
+      <h5>Others:-</h5>
+      <p>WLAN: ${phones.others.WLAN}</p>
+      <p>Bluetooth: ${phones.others.Bluetooth}</p>
+      <p>GPS: ${phones.others.GPS}</p>
+      <p>NFC: ${phones.others.NFC}</p>
+      <p>Radio: ${phones.others.Radio}</p>
+      <p>USB: ${phones.others.USB}</p>
+    </div>
+    
+    
+    
+    `;
+
+    phoneDetails.appendChild(div);
 }
 
 
