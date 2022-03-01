@@ -44,13 +44,53 @@ const displaySearchResult = phones => {
         <img src="${data.image}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${data.phone_name}</h5>
-          <button type="button" class="btn btn-success">Show Detail</button>
+          <button onclick="loadingPhoneDetail('${data.slug}')" type="button" class="btn btn-success">Show Detail</button>
         </div>
       </div>
         
         
         `
+        // console.log(data.slug);
         searchResult.appendChild(div);
 
     });
 }
+
+
+
+// show detail function
+
+const loadingPhoneDetail = id => {
+    console.log(id);
+
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayPhoneDetail(data.data) )
+   
+}
+
+const displayPhoneDetail = phones => {
+    console.log(phones);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
